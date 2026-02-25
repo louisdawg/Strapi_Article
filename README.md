@@ -6,16 +6,7 @@ Ein modernes React-Frontend für Strapi-Artikel mit Editorial-Design.
 
 ## ⚙️ Voraussetzungen
 
-### 1 – Git installieren
-Download: **https://git-scm.com**
-
-```bash
-git --version
-```
-
-### 2 – PostgreSQL installieren
-Download: **https://www.postgresql.org/download**
-
+### 1 – PostgreSQL
 Datenbank und User anlegen:
 
 ```sql
@@ -40,7 +31,7 @@ DATABASE_PASSWORD=deinpasswort
 ## 📥 Projekt klonen
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/louisdawg/Strapi_Article.git
 cd Strapi_Article
 ```
 
