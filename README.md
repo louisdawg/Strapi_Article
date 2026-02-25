@@ -10,9 +10,11 @@ Ein modernes React-Frontend für Strapi-Artikel mit Editorial-Design.
 Datenbank und User anlegen:
 
 ```sql
-CREATE DATABASE strapi_db;
-CREATE USER strapi_user WITH PASSWORD 'deinpasswort';
-GRANT ALL PRIVILEGES ON DATABASE strapi_db TO strapi_user;
+CREATE USER strapi_user WITH PASSWORD 'deinpasswort' LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE;
+CREATE DATABASE strapi_db OWNER strapi_user;
+GRANT CONNECT ON DATABASE strapi_db TO strapi_user;
+\c strapi_db
+GRANT ALL ON SCHEMA public TO strapi_user;
 ```
 
 In `my-strapi-project/.env` eintragen:
