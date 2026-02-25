@@ -6,10 +6,43 @@ Ein modernes React-Frontend für Strapi-Artikel mit Editorial-Design.
 
 ## ⚙️ Voraussetzungen
 
-| Tool | Version | Download |
-|------|---------|----------|
-| Node.js | 18+ | https://nodejs.org |
-| npm | kommt mit Node.js | – |
+### 1 – Git installieren
+Download: **https://git-scm.com**
+
+```bash
+git --version
+```
+
+### 2 – PostgreSQL installieren
+Download: **https://www.postgresql.org/download**
+
+Datenbank und User anlegen:
+
+```sql
+CREATE DATABASE strapi_db;
+CREATE USER strapi_user WITH PASSWORD 'deinpasswort';
+GRANT ALL PRIVILEGES ON DATABASE strapi_db TO strapi_user;
+```
+
+In `my-strapi-project/.env` eintragen:
+
+```env
+DATABASE_CLIENT=postgres
+DATABASE_HOST=127.0.0.1
+DATABASE_PORT=5432
+DATABASE_NAME=strapi_db
+DATABASE_USERNAME=strapi_user
+DATABASE_PASSWORD=deinpasswort
+```
+
+---
+
+## 📥 Projekt klonen
+
+```bash
+git clone <repo-url>
+cd Strapi_Article
+```
 
 ---
 
@@ -23,53 +56,31 @@ Strapi_Article/
 
 ---
 
-## 🚀 Installation & Start
+## 🚀 Start
 
-Du brauchst **zwei Terminals gleichzeitig** – eines für Strapi, eines für das Frontend.
+Du brauchst **zwei Terminals gleichzeitig.**
 
----
-
-### Terminal 1 – Strapi Backend starten
-
-**Windows:**
+### Terminal 1 – Strapi Backend
 ```bash
 cd my-strapi-project
+npm install
 npm run develop
 ```
+> ✅ Läuft auf **http://localhost:1337**
 
-**Arch Linux:**
-```bash
-cd my-strapi-project
-npm run develop
-```
-
-> ✅ Strapi läuft auf **http://localhost:1337**
-
----
-
-### Terminal 2 – React Frontend starten
-
-**Windows:**
+### Terminal 2 – React Frontend
 ```bash
 cd strapi-frontend
 npm install
 npm run dev
 ```
-
-**Arch Linux:**
-```bash
-cd strapi-frontend
-npm install
-npm run dev
-```
-
-> ✅ Frontend läuft auf **http://localhost:5173**
+> ✅ Läuft auf **http://localhost:5173**
 
 ---
 
 ## 🔧 Strapi Admin einrichten
 
-Öffne **http://localhost:1337/admin** und mache folgende Schritte **einmalig**:
+Öffne **http://localhost:1337/admin** – diese Schritte nur **einmalig** nötig:
 
 ### Schritt 1 – API-Berechtigungen setzen
 Ohne diesen Schritt bekommst du einen **403 Fehler** im Frontend!
@@ -78,26 +89,26 @@ Ohne diesen Schritt bekommst du einen **403 Fehler** im Frontend!
 Settings → Users & Permissions Plugin → Roles → Public
 → Article → find ✅
 → Article → findOne ✅
-→ Save klicken
+→ Save
 ```
 
 ### Schritt 2 – Artikel erstellen
 ```
 Content Manager → Article → + Create new entry
-→ Titel eingeben
+→ Titel & Text eingeben
 → Bild bei coverImage hochladen
-→ "Publish" klicken (nicht nur Save!)
+→ "Publish" klicken  ←  nicht nur Save!
 ```
 
 ---
 
-## 🌐 Übersicht der URLs
+## 🌐 URLs
 
 | URL | Beschreibung |
 |-----|-------------|
-| http://localhost:5173 | React Frontend (Webseite) |
+| http://localhost:5173 | React Frontend |
 | http://localhost:1337/admin | Strapi Admin Panel |
-| http://localhost:1337/api/articles | REST API direkt |
+| http://localhost:1337/api/articles | REST API |
 
 ---
 
@@ -106,47 +117,20 @@ Content Manager → Article → + Create new entry
 **„Verbindungsfehler" im Frontend**
 → Strapi läuft nicht, oder API-Berechtigungen fehlen (siehe Schritt 1)
 
-**„403 Forbidden" in der Strapi-Konsole**
+**„403 Forbidden"**
 → Berechtigungen für Public-Rolle nicht gesetzt (siehe Schritt 1)
 
 **„Port 1337 is already used"**
-
-Windows:
-```bash
-netstat -ano | findstr :1337
-taskkill /PID <die-angezeigte-PID> /F
-```
-
-Arch Linux:
-```bash
-lsof -i :1337
-kill -9 <die-angezeigte-PID>
-```
+→ Strapi läuft bereits in einem anderen Terminal – dieses schließen oder den Prozess beenden
 
 **„Upgrade Required" im Browser**
-→ Anderen Browser verwenden (Firefox empfohlen), oder `Ctrl + Shift + R`
+→ Anderen Browser verwenden (Firefox empfohlen) oder `Ctrl + Shift + R`
 
 **Frontend zeigt leere Seite**
-→ Prüfen ob mindestens ein Artikel **publiziert** (nicht nur gespeichert) ist
+→ Mindestens einen Artikel **publizieren** (nicht nur speichern)
 
 ---
 
 ## 📦 Kostenlose Beispielbilder
 
-Auf **https://unsplash.com** findest du kostenlose Bilder zum Herunterladen und in Strapi hochladen.
-
----
-
-## 🛠️ Arch Linux – Node.js installieren
-
-Falls Node.js noch nicht installiert ist:
-
-```bash
-sudo pacman -S nodejs npm
-```
-
-Version prüfen:
-```bash
-node --version   # sollte 18+ sein
-npm --version
-```
+**https://unsplash.com** – kostenlos herunterladen und in Strapi hochladen
