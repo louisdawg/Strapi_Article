@@ -31,13 +31,6 @@ Du brauchst **zwei Terminals gleichzeitig** – eines für Strapi, eines für da
 
 ### Terminal 1 – Strapi Backend starten
 
-**Windows:**
-```bash
-cd my-strapi-project
-npm run develop
-```
-
-**Arch Linux:**
 ```bash
 cd my-strapi-project
 npm run develop
@@ -49,14 +42,6 @@ npm run develop
 
 ### Terminal 2 – React Frontend starten
 
-**Windows:**
-```bash
-cd strapi-frontend
-npm install
-npm run dev
-```
-
-**Arch Linux:**
 ```bash
 cd strapi-frontend
 npm install
