@@ -16,18 +16,6 @@ GRANT CONNECT ON DATABASE strapi_db TO strapi_user;
 \c strapi_db
 GRANT ALL ON SCHEMA public TO strapi_user;
 ```
-
-In `my-strapi-project/.env` eintragen:
-
-```env
-DATABASE_CLIENT=postgres
-DATABASE_HOST=127.0.0.1
-DATABASE_PORT=5432
-DATABASE_NAME=strapi_db
-DATABASE_USERNAME=strapi_user
-DATABASE_PASSWORD=deinpasswort
-```
-
 ---
 
 ## 📥 Projekt klonen
@@ -46,6 +34,17 @@ Die `.env` Datei wird **nicht** mit gepusht (enthält Passwörter) – du musst 
 ```bash
 cd my-strapi-project
 cp .env.example .env
+```
+
+In `my-strapi-project/.env` eintragen:
+
+```env
+DATABASE_CLIENT=postgres
+DATABASE_HOST=127.0.0.1
+DATABASE_PORT=5432
+DATABASE_NAME=strapi_db
+DATABASE_USERNAME=strapi_user
+DATABASE_PASSWORD=deinpasswort
 ```
 
 Dann `.env` öffnen und die leeren Felder befüllen. Zufällige Strings für die Secrets generieren (5x ausführen):
