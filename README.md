@@ -39,6 +39,23 @@ cd Strapi_Article
 
 ---
 
+## 🔑 .env einrichten
+
+Die `.env` Datei wird **nicht** mit gepusht (enthält Passwörter) – du musst sie selbst anlegen:
+
+```bash
+cd my-strapi-project
+cp .env.example .env
+```
+
+Dann `.env` öffnen und die leeren Felder befüllen. Zufällige Strings für die Secrets generieren (5x ausführen):
+
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
+```
+
+---
+
 ## 📁 Projektstruktur
 
 ```
